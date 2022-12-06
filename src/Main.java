@@ -19,6 +19,7 @@ public class Main {
         EmployeeService.printAvgSalary();
         EmployeeService.printAllNames();
         System.out.println(employees[5].getId());
+        System.out.println(employees[3].equals(employees[1]));
     }
 
 
