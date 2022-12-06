@@ -12,104 +12,23 @@ public class Main {
         employees[8] = new Employee("Dwayne", "The Rock", "Johnson", 2, 270000);
         employees[9] = new Employee("Scarlett", "Ingrid", "Johansson", 2, 1000000);
 
-        printAllEmployees();
-        printSumSalaryPerMonth();
-        printEmployeeWithMinSalary();
-        printEmployeeWithMaxSalary();
-        printAvgSalary();
-        printAllNames();
-
-
+        EmployeeService.printAllEmployees();
+        EmployeeService.printSumSalaryPerMonth();
+        EmployeeService.printEmployeeWithMinSalary();
+        EmployeeService.printEmployeeWithMaxSalary();
+        EmployeeService.printAvgSalary();
+        EmployeeService.printAllNames();
+        System.out.println(employees[5].getId());
     }
 
-    public static void printAllEmployees() {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                System.out.println(employees[i]);
-            }
-        }
-    }
 
-    public static void printSumSalaryPerMonth() {
-        double sumSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                sumSalary = sumSalary + employees[i].getSalary();
-            }
-        }
-        System.out.println("Общие затраты на зарплату в месяц составляют " + sumSalary);
-    }
 
-    public static void printEmployeeWithMinSalary() {
-        double minSalary = maxSalary();
-        int relevantIndex = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                if (employees[i].getSalary() < minSalary) {
-                    minSalary = employees[i].getSalary();
-                    relevantIndex = i;
-                }
-            }
-        }
-        System.out.println("Сотрудник с минимальной зарплатой - " + employees[relevantIndex]);
-    }
 
-    public static void printEmployeeWithMaxSalary() {
-        double maxSalary = 0;
-        int relevantIndex = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                if (employees[i].getSalary() > maxSalary) {
-                    maxSalary = employees[i].getSalary();
-                    relevantIndex = i;
-                }
-            }
-        }
-        System.out.println("Сотрудник с максимальной зарплатой - " + employees[relevantIndex]);
-    }
 
-    public static void printAvgSalary() {
-        double sumSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                sumSalary = sumSalary + employees[i].getSalary();
-            }
-        }
-        double avgSalary = sumSalary / employeesCount();
-        System.out.println("Средняя зарплата в месяц составляет " + avgSalary);
-    }
 
-    public static void printAllNames() {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                System.out.println(employees[i].getFirstName() + " " + employees[i].getMiddleName() + " " + employees[i].getLastName());
-            }
-        }
-    }
 
-    // Метод для нахождения максимальной зарплаты, чтобы не выдумывать число для нахождения минимальной зарплаты
-    public static double maxSalary() {
-        double maxSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                if (employees[i].getSalary() > maxSalary) {
-                    maxSalary = employees[i].getSalary();
-                }
-            }
-        }
-        return maxSalary;
-    }
 
-    // Метод для нахождения текущего кол-ва сотрудников
-    public static int employeesCount() {
-       int lastId = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                lastId = employees[i].getId();
-            }
-        }
-        return lastId + 1;
-    }
+
 
 
 }

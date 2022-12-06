@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Employee {
     private String firstName;
     private String middleName;
@@ -54,14 +56,16 @@ public class Employee {
         return this.firstName + " " + this.middleName + " " + this.lastName + ", отдел " + this.department + ", зарплата " + this.salary + ", id " + this.id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id;
+    }
 
-
-
-
-
-
-
-
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
